@@ -5,7 +5,7 @@ public class ball : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Vector2 dir = new Vector2(1.0f,1.0f);		
+		Vector2 dir = new Vector2(1.0f,-1.0f);		
 		GetComponent<Rigidbody2D>().velocity = dir;
 	}
 	
@@ -23,4 +23,10 @@ public class ball : MonoBehaviour {
 			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,GetComponent<Rigidbody2D>().velocity.y*-1.0f);
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		//Debug.Log("coll");
+		GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 1.0f);
+	}
+
 }
