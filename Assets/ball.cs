@@ -18,30 +18,37 @@ public class ball : MonoBehaviour {
 
 		float addX = 0.0f;
 		if (min.x > this.transform.position.x) {
-			addX = this.transform.position.x - min.x;
+			addX = min.x - this.transform.position.x;
 		}
 		if (this.transform.position.x > max.x) {
-			addX = -1.0f * (max.x - this.transform.position.x);
+			addX = max.x - this.transform.position.x;
 		}
 		if (0.0f != addX) {
-			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x * -1.0f + addX,GetComponent<Rigidbody2D>().velocity.y);
+			Vector2 vec2 = transform.position;
+			vec2.x += addX;
+			transform.position = vec2;
+			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x * -1.0f, GetComponent<Rigidbody2D>().velocity.y);
 		}
 
 		float addY = 0.0f;
 		if (min.y > this.transform.position.y) {
-			addY = this.transform.position.y - min.y;
+			addY = min.y - this.transform.position.y;
 		}
 		if (this.transform.position.y > max.y) {
-			addY = -1.0f * (max.y - this.transform.position.y);
+			addY = max.y - this.transform.position.y;
 		}
 		if (0.0f != addY) {
-			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,GetComponent<Rigidbody2D>().velocity.y * -1.0f + addY);
+			Vector2 vec2 = transform.position;
+			vec2.y += addY;
+			transform.position = vec2;
+			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y * -1.0f);
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (0 < coll.contacts.Length) {
-			GetComponent<Rigidbody2D>().velocity += (coll.contacts[0].normal + coll.contacts[0].normal);
+			Vector2 vecNorX2 = coll.contacts[0].normal + coll.contacts[0].normal;
+			GetComponent<Rigidbody2D>().velocity += vecNorX2;
 		}
 	}	
 }
