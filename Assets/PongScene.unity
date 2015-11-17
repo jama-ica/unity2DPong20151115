@@ -98,6 +98,7 @@ GameObject:
   - 212: {fileID: 329902342}
   - 114: {fileID: 329902344}
   - 50: {fileID: 329902345}
+  - 58: {fileID: 329902346}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -170,6 +171,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &329902346
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 329902341}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .174999997
 --- !u!1 &1542975706
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +195,7 @@ GameObject:
   - 212: {fileID: 1542975709}
   - 50: {fileID: 1542975708}
   - 114: {fileID: 1542975707}
+  - 61: {fileID: 1542975711}
   m_Layer: 0
   m_Name: bar
   m_TagString: Untagged
@@ -210,7 +225,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -253,6 +268,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!61 &1542975711
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1542975706}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.75, y: .349999994}
 --- !u!1 &1743357707
 GameObject:
   m_ObjectHideFlags: 0
