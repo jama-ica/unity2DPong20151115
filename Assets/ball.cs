@@ -47,8 +47,8 @@ public class ball : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (0 < coll.contacts.Length) {
-			Vector2 vecNorX2 = coll.contacts[0].normal + coll.contacts[0].normal;
-			GetComponent<Rigidbody2D>().velocity += vecNorX2;
+			Vector2 f = GetComponent<Rigidbody2D> ().velocity;
+			GetComponent<Rigidbody2D>().velocity = Vector2.Reflect(f, coll.contacts[0].normal.normalized);
 		}
 	}	
 }
