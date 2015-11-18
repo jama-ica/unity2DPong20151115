@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ball : MonoBehaviour {
 
+	Vector2 prevVec2;
+
 	// Use this for initialization
 	void Start () {
 		Vector2 dir = new Vector2(3.0f,-3.0f);		
@@ -11,6 +13,8 @@ public class ball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		prevVec2 = GetComponent<Rigidbody2D> ().velocity;
+
 		// 画面左下のワールド座標をビューポートから取得
 		Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
 		// 画面右上のワールド座標をビューポートから取得
@@ -47,8 +51,15 @@ public class ball : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (0 < coll.contacts.Length) {
-			Vector2 f = GetComponent<Rigidbody2D> ().velocity;
+			Vector2 f = this.prevVec2; //GetComponent<Rigidbody2D>().velocity;
 			GetComponent<Rigidbody2D>().velocity = Vector2.Reflect(f, coll.contacts[0].normal.normalized);
+			prevVec2 = GetComponent<Rigidbody2D> ().velocity;
 		}
 	}	
+
+	void OnTriggerEnter2D(Collider2D coll)
+	{
+		Debug.Log("hit trigger1");
+		//coll.attachedRigidbody.
+	}
 }
