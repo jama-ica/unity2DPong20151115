@@ -46,8 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BlockController.cs" />
      <Compile Include="Assets\ball.cs" />
      <Compile Include="Assets\bar.cs" />
+     <Compile Include="Assets\blockScript.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>

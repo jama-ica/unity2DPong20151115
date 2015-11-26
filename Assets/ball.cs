@@ -56,10 +56,4 @@ public class ball : MonoBehaviour {
 			prevVec2 = GetComponent<Rigidbody2D> ().velocity;
 		}
 	}	
-
-	void OnTriggerEnter2D(Collider2D coll)
-	{
-		Debug.Log("hit trigger1");
-		//coll.attachedRigidbody.
-	}
 }
