@@ -38,7 +38,8 @@ public class ball : MonoBehaviour {
 
 		float addY = 0.0f;
 		if (min.y > this.transform.position.y) {
-			addY = min.y - this.transform.position.y;
+			Application.LoadLevel("gameOver");
+			return;
 		}
 		if (this.transform.position.y > max.y) {
 			addY = max.y - this.transform.position.y;
