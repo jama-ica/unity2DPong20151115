@@ -2,11 +2,10 @@
 using System.Collections;
 
 public class GuiScriptScore : MonoBehaviour {
-
-
+	
 	public Rect rect;
 	private GUIStyle style;
-	int num = 0;
+	int score;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +16,8 @@ public class GuiScriptScore : MonoBehaviour {
 		GUIStyleState styleState = new GUIStyleState();
 		styleState.textColor = Color.green;
 		this.style.normal = styleState;
+
+		this.score = 0;
 	}
 	
 	// Update is called once per frame
@@ -25,8 +26,12 @@ public class GuiScriptScore : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		string text = "score " + this.num;
+		string text = "score " + this.score;
 		GUI.Label(rect, text, this.style);
-		this.num++;
+	}
+
+	public void addScore(int add)
+	{
+		this.score += add;
 	}
 }

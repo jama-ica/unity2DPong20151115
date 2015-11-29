@@ -9,6 +9,8 @@ public class ball : MonoBehaviour {
 	void Start () {
 		Vector2 dir = new Vector2(3.0f,-3.0f);		
 		GetComponent<Rigidbody2D>().velocity = dir;
+
+		GameObject.Find("GUIScore");
 	}
 	
 	// Update is called once per frame
@@ -54,6 +56,21 @@ public class ball : MonoBehaviour {
 			Vector2 f = this.prevVec2; //GetComponent<Rigidbody2D>().velocity;
 			GetComponent<Rigidbody2D>().velocity = Vector2.Reflect(f, coll.contacts[0].normal.normalized);
 			prevVec2 = GetComponent<Rigidbody2D> ().velocity;
+
+			if(coll.collider.gameObject.tag.Equals("tagBlock")){
+				addScore(100);
+			}
 		}
-	}	
+	}
+
+	private void addScore(int add)
+	{
+		GameObject scoreObj = GameObject.Find("GUIScore");
+		if( scoreObj != null ){
+			GuiScriptScore scriptScore = scoreObj.GetComponent<GuiScriptScore>();
+			if(scriptScore != null){
+				scriptScore.addScore(add);
+			}
+		}
+	}
 }
