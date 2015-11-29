@@ -3,12 +3,15 @@ using System.Collections;
 
 public class GuiScriptScore : MonoBehaviour {
 
-	public Rect rect = new Rect (     0,   0, 100, 50);
+
+	public Rect rect;
 	private GUIStyle style;
 	int num = 0;
 
 	// Use this for initialization
 	void Start () {
+		this.rect = new Rect (Screen.width * 0.8f, 0, 100, 50);
+	
 		this.style = new GUIStyle();
 		this.style.fontSize = 30;   // フォントサイズの変更
 		GUIStyleState styleState = new GUIStyleState();
