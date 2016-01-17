@@ -3,7 +3,9 @@ using System.Collections;
 
 public class ball : MonoBehaviour {
 
-	Vector2 prevVec2;
+	private Vector2 prevVec2;
+	private AudioClip audioClip;
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -73,5 +75,12 @@ public class ball : MonoBehaviour {
 				scriptScore.addScore(add);
 			}
 		}
+	}
+
+	private void playSound()
+	{
+		audioSource = gameObject.GetComponent<AudioSource> ();
+		audioSource.clip = audioClip;
+		audioSource.Play ();
 	}
 }
